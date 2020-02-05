@@ -1,0 +1,13 @@
+,Make,Model,Year,Engine Displacement,Cylinders,Transmission,Drivetrain,Vehicle Class,Fuel Type,Fuel Barrels/Year,City MPG,Highway MPG,Combined MPG,CO2 Emission Grams/Mile,Fuel Cost/Year
+0,AM General,DJ Po Vehicle 2WD,1984,2.5,4,Automatic 3-spd,2-Wheel Drive,Special Purpose Vehicle 2WD,Regular,19.3888235294,18,17,17,522.7647058824,1950
+1,AM General,FJ8c Post Office,1984,4.2,6,Automatic 3-spd,2-Wheel Drive,Special Purpose Vehicle 2WD,Regular,25.3546153846,13,13,13,683.6153846154,2550
+2,AM General,Post Office DJ5 2WD,1985,2.5,4,Automatic 3-spd,Rear-Wheel Drive,Special Purpose Vehicle 2WD,Regular,20.600625,16,17,16,555.4375,2100
+3,AM General,Post Office DJ8 2WD,1985,4.2,6,Automatic 3-spd,Rear-Wheel Drive,Special Purpose Vehicle 2WD,Regular,25.3546153846,13,13,13,683.6153846154,2550
+4,ASC Incorporated,GNX,1987,3.8,6,Automatic 4-spd,Rear-Wheel Drive,Midsize Cars,Premium,20.600625,14,21,16,555.4375,2550
+5,Acura,2.2CL/3.0CL,1997,2.2,4,Automatic 4-spd,Front-Wheel Drive,Subcompact Cars,Regular,14.9822727273,20,26,22,403.9545454545,1500
+6,Acura,2.2CL/3.0CL,1997,2.2,4,Manual 5-spd,Front-Wheel Drive,Subcompact Cars,Regular,13.73375,22,28,24,370.2916666667,1400
+7,Acura,2.2CL/3.0CL,1997,3.0,6,Automatic 4-spd,Front-Wheel Drive,Subcompact Cars,Regular,16.4805,18,26,20,444.35,1650
+8,Acura,2.3CL/3.0CL,1998,2.3,4,Automatic 4-spd,Front-Wheel Drive,Subcompact Cars,Regular,14.9822727273,19,27,22,403.9545454545,1500
+9,Acura,2.3CL/3.0CL,1998,2.3,4,Manual 5-spd,Front-Wheel Drive,Subcompact Cars,Regular,13.73375,21,29,24,370.2916666667,1400
+10,Acura,2.3CL/3.0CL,1998,3.0,6,Automãçtic 4-spd,Front-Wheel Drive,Subcompact Cars,Regular,16.4805,17,26,20,444.35,1650
+11,Acura,2.3CL/3.0CL,1999,2.3,4,Automatic 4-spd,Front-Wheel Drive,Subcompact Cars,Regular,14.9822727273,20,27,22,403.9545454545,1500
