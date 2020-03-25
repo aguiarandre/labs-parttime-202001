@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selenium</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="selenium">Selenium</h1>
+<h2 id="the-browser-automation-tool">The browser automation tool</h2>
+<h3 id="instalation">Instalation</h3>
+<ul>
+<li>Download the chrome driver from  <a href="https://sites.google.com/a/chromium.org/chromedriver/downloads">this website</a>. You’ll need to know the version of Google Chrome you are using. To do that, you need to click on google chrome options &gt; help &gt; about google chrome.</li>
+</ul>
+<img src="https://i.ibb.co/SK4nLGv/chrome-version.png" alt="chrome-version" border="0">
+<img src="https://i.ibb.co/zPCkZxd/chrome-version2.png" alt="chrome-version2" border="0">
+<ul>
+<li>Install Selenium using pip
+<blockquote>
+<p><code>pip install selenium</code></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="usage">Usage</h3>
+<p>After installing selenium and downloading a web-browser, you can initiate the program using:</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+
+<span class="token comment"># open the chrome browser</span>
+driver <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span>executable_path<span class="token operator">=</span><span class="token string">'C:/Users/andreaguiar/Desktop/selenium/chromedriver.exe'</span><span class="token punctuation">)</span>
+</code></pre>
+<p><em>hint: change the <code>executable_path</code> argument to the place it is in <strong>your</strong> computer.</em><br>
+<em>Mac Users Note: You’ll have to allow <code>chromedriver</code> to work from your computer. To do that, just right click the recently downloaded file <code>chromedriver</code> and click <code>open</code> - it will ask for your permission and save that for later use.</em></p>
+<p>Note that I’ve specified the argument <code>executable_path</code> to let selenium know exactly where I stored my <code>chromedriver.exe</code> file (by default, it looks at the <code>current working directory</code>. This will already programatically open your web-browser.</p>
+<p>You’ll be able to navigate to a web-page by using the <code>get</code> command:</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token comment"># navigate to webpage</span>
+driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"http://testing-ground.scraping.pro/login"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>If you look at your recently opened browser now, it has moved to the url described above.</p>
+<h3 id="interacting-with-the-page">Interacting with the page</h3>
+<p>Selenium lets you interact with the page in several different manners. For example, in the example page above, if you <code>right-click + inspect</code> the <code>User name</code> field at the bottom of the page, you’ll see that the place where you input your user name can be described both by its <code>id="usr"</code> or its <code>name="usr"</code>. Selenium lets you go to that element in several ways:</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token comment"># selecting elements by their name or id</span>
+elem <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">'usr'</span><span class="token punctuation">)</span>
+elem <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element_by_name<span class="token punctuation">(</span><span class="token string">'usr'</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Both lines above return the same result.<br>
+One could also use the XPath to find the element. The XPath is a query language that gives you the path to the object you want to find. To find the XPath of the element we above, check the image:</p>
+<img src="https://i.ibb.co/j6WGgCT/chrome-xpath.png" alt="chrome-xpath" border="0">
+<p>After copying the XPath, one can directly find the element using:</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token comment"># selecting elements by xpath</span>
+elem <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">'/html/body/div[2]/div[2]/form/input[1]'</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Right now we have the element we’ve called <code>elem</code> in our hands. This is the place where we would input our user name. Selenium lets us input text as well. <em>Pressing a button</em> in a computer perspective means <em>sending a key</em> from our keyboard. That is why the following syntax applies:</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token comment"># writing on the element</span>
+elem<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">'admin'</span><span class="token punctuation">)</span>
+</code></pre>
+<p>If you look now at your robot web-browser, it will have written <code>admin</code> on the user name field. If you run again the code, you’ll note that the result will be appended to what has been written beforehand. If you want to clear the text before anything, you can call:</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token comment">#clearing text in input field</span>
+elem<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>You can also send commonly used keys, such as UP and DOWN - we just need to import the <code>Keys</code> class from selenium common keys module. For instance, we could move our cursor to the left if we ran:</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>common<span class="token punctuation">.</span>keys <span class="token keyword">import</span> Keys
+elem<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span>Keys<span class="token punctuation">.</span>LEFT<span class="token punctuation">)</span>
+</code></pre>
+<p>We could then move to the next field in this case either <em>pressing</em> <code>elem.send_keys(Keys.TAB)</code>. Or by selecting the element via:</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token comment"># getting password element</span>
+elem <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">'pwd'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># writing our password</span>
+elem<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">'12345'</span><span class="token punctuation">)</span>
+</code></pre>
+<p>We could then <em>press ENTER</em> via</p>
+<pre class=" language-python"><code class="prism  language-python">elem<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span>Keys<span class="token punctuation">.</span>RETURN<span class="token punctuation">)</span>
+</code></pre>
+<p>And Voila! We have successfully accessed the page. You can continue using selenium to interact with the page, for instance checking the result obtained, in this case via</p>
+<pre class=" language-python"><code class="prism  language-python">elem <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element_by_tag_name<span class="token punctuation">(</span><span class="token string">'h3'</span><span class="token punctuation">)</span>
+</code></pre>
+<p>This will return a Selenium WebElement that has several attributes and methods, including the <code>text</code> attribute. So running:</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>elem<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token string">'WELCOME :)'</span>
+</code></pre>
+<h3 id="notes">Notes:</h3>
+<p>If you know there will be more than one element with a specific class name, for example, you can use the <em>.find_element<b>s</b>_by_name(‘usr’)</em> (with the <strong>s</strong> for element<strong>s</strong>) and this will return to you a list of the results that match that class.</p>
+<pre class=" language-python"><code class="prism  language-python">elem <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element<span class="token operator">&lt;</span>b<span class="token operator">&gt;</span>s<span class="token operator">&lt;</span><span class="token operator">/</span>b<span class="token operator">&gt;</span>_by_name<span class="token punctuation">(</span><span class="token string">'usr'</span><span class="token punctuation">)</span>
+</code></pre>
+<p>For example, the following snippet of code will get all elements whose class matches <code>'result-con'</code>, which in this case happens to be 100. After that, we iterate throught those elements finding once again another class called <code>'team-cell'</code> - which returns two elements (<em>team-a</em> and <em>team-b</em>), and we select the first element via <code>[0]</code>:</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token comment"># url for CS GO games</span>
+url <span class="token operator">=</span> <span class="token string">'https://www.hltv.org/results?offset=100'</span>
+
+<span class="token comment"># navigate to page</span>
+driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+
+<span class="token comment"># get elements that match: class='result-con'</span>
+elems <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_elements_by_class_name<span class="token punctuation">(</span><span class="token string">'result-con'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>elems<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token number">100</span>
+
+<span class="token comment"># print all team-a names</span>
+<span class="token keyword">for</span> elem <span class="token keyword">in</span> elems<span class="token punctuation">:</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span>elem<span class="token punctuation">.</span>find_elements_by_class_name<span class="token punctuation">(</span><span class="token string">'team-cell'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="application-answering-forms">Application: Answering forms</h2>
+<p>One can automate the submission of a form with this tool. For example, the following code answers an example google form.</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>common<span class="token punctuation">.</span>keys <span class="token keyword">import</span> Keys
+
+<span class="token comment"># navigate to form</span>
+form <span class="token operator">=</span> <span class="token string">'https://forms.gle/xXLiESYZWkgV2Yuf7'</span>
+driver <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span>executable_path<span class="token operator">=</span><span class="token string">'C:/Users/andreaguiar/Desktop/selenium/chromedriver.exe'</span><span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span>form<span class="token punctuation">)</span>
+
+<span class="token comment"># input name by sending keys</span>
+elem <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element_by_class_name<span class="token punctuation">(</span><span class="token string">'quantumWizTextinputPaperinputInput'</span><span class="token punctuation">)</span>
+elem<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">'Andre-Autobot'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># find the radio buttons for the second question and click on the button that has '&lt; 30' on it</span>
+elems <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_elements_by_class_name<span class="token punctuation">(</span><span class="token string">'freebirdFormviewerViewItemsRadioLabel'</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> elem <span class="token keyword">in</span> elems<span class="token punctuation">:</span>
+    <span class="token keyword">if</span> <span class="token string">'&lt; 30'</span> <span class="token keyword">in</span> elem<span class="token punctuation">.</span>text<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>elem<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+        elem<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># find the radio buttons for the grade question </span>
+elems <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_elements_by_class_name<span class="token punctuation">(</span><span class="token string">'freebirdMaterialScalecontentLabel'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># loop for then and click on the grade chosen</span>
+my_grade <span class="token operator">=</span> <span class="token number">3</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>my_grade <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    elems<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># lastly, find the submit button and click on it</span>
+elem <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element_by_class_name<span class="token punctuation">(</span><span class="token string">'appsMaterialWizButtonPaperbuttonLabel'</span><span class="token punctuation">)</span>
+elem<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>How did I find those class names? By inspecting the google form and checking the <code>html</code> file of it.</p>
+<p>The following <em>gif</em> is a showcase of the above code in action, with each step shown.</p>
+<img src="https://i.ibb.co/BG9HGd9/form-automation.gif" alt="form-automation" border="0">
+<h2 id="headless-chrome">Headless Chrome</h2>
+<p>Everytime we’ve run these codes, a browser suddenly appeared performing the given tasks. What if we wanted to perform these tasks with a sort of invisible browser? This is as easy as giving the <code>webdriver.Chrome</code> class a new argument called <code>options</code>. This is how we would do: we have to instantiate an Options class and add some arguments to it, namely the <code>--headless</code>, <code>--disable-gpu</code> and <code>--no-sandbox</code> arguments. And finally, we give this object as the <code>options</code> argument of the <code>webdriver</code> we initialize. The following code tells you how to initialize the <code>webdriver</code> in this manner.</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>chrome<span class="token punctuation">.</span>options <span class="token keyword">import</span> Options
+chrome_options <span class="token operator">=</span> Options<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+chrome_options<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">"--headless"</span><span class="token punctuation">)</span>
+chrome_options<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'--disable-gpu'</span><span class="token punctuation">)</span>
+chrome_options<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'--no-sandbox'</span><span class="token punctuation">)</span>
+
+driver <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span>executable_path<span class="token operator">=</span><span class="token string">'C:/Users/andreaguiar/Desktop/selenium/chromedriver.exe'</span><span class="token punctuation">,</span> options<span class="token operator">=</span>chrome_options<span class="token punctuation">)</span>
+</code></pre>
+<p>The rest of the code can be written exactly the same way and the task will be performed. However, this time, the browser won’t show up.</p>
+<p>For more information on Selenium, its <a href="https://selenium-python.readthedocs.io/">documentation</a> is really handy.</p>
+<p><u> André Aguiar</u></p>
+</div>
+</body>
+
+</html>
