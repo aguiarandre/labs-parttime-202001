@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>how git works</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="git-fundamentals">Git Fundamentals</h1>
+<p>Git syntaxes and fundamentals.</p>
+<h2 id="general-idea">General Idea</h2>
+<ul>
+<li>Stupid content tracker.</li>
+<li>Version Control.</li>
+</ul>
+<h2 id="git-setup">Git Setup</h2>
+<h3 id="first-things-first.">First things first.</h3>
+<h4 id="git-config">git config</h4>
+<p>By the first time you use git on your computer, you should set your username and email as following:</p>
+<blockquote>
+<p>git config  --global <a href="http://user.name">user.name</a>  “FIRST_NAME LAST_NAME”<br>
+git config  --global user.email <a href="mailto:%22bla@example.com">"bla@example.com</a>"</p>
+</blockquote>
+<h3 id="how-to-start-working">How to start working</h3>
+<p>Git works with the concept of Repository (Repo). You are able to have a <code>local repo</code> and <code>remote repos</code>. Let’s first introduce our <code>local repository</code> and see how it works.</p>
+<h4 id="git-init">git init</h4>
+<p>Initializes a .git folder in the folder you ran the command <code>git init</code>. It is the command that tells the software Git starts to track that folder.</p>
+<h4 id="git-add">git add</h4>
+<p>Until you say something, git doesn’t know which files you want to start versioning. You have to specify <code>git add</code> for git to start tracking that file.</p>
+<h4 id="git-commit">git commit</h4>
+<p>Use git commit if you want to store the changes (4EVER).</p>
+<h4 id="git-push">git push</h4>
+<p>Git push is used to send all your modifications to your remote repository. Push will apply the modifications to all your files in the remote repo.</p>
+<h4 id="git-pull">git pull</h4>
+<p>Git pull is used to bring all the updates from your remote repo to your local repo and merge those difference into your local files.</p>
+<hr>
+<h2 id="basic-git-workflow">Basic Git workflow</h2>
+<div class="mermaid"><svg xmlns="http://www.w3.org/2000/svg" id="mermaid-svg-2caBborkRYpVNUgy" height="100%" width="100%" style="max-width:850px;" viewBox="-50 -10 850 941.3125"><g></g><g><line id="actor28" x1="75" y1="5" x2="75" y2="930.3125" class="actor-line" stroke-width="0.5px" stroke="#999"></line><rect x="0" y="0" fill="#eaeaea" stroke="#666" width="150" height="65" rx="3" ry="3" class="actor"></rect><text x="75" y="32.5" dominant-baseline="central" alignment-baseline="central" class="actor" style="text-anchor: middle;"><tspan x="75" dy="0">Working Directory</tspan></text></g><g><line id="actor29" x1="275" y1="5" x2="275" y2="930.3125" class="actor-line" stroke-width="0.5px" stroke="#999"></line><rect x="200" y="0" fill="#eaeaea" stroke="#666" width="150" height="65" rx="3" ry="3" class="actor"></rect><text x="275" y="32.5" dominant-baseline="central" alignment-baseline="central" class="actor" style="text-anchor: middle;"><tspan x="275" dy="0">Staging Area</tspan></text></g><g><line id="actor30" x1="475" y1="5" x2="475" y2="930.3125" class="actor-line" stroke-width="0.5px" stroke="#999"></line><rect x="400" y="0" fill="#eaeaea" stroke="#666" width="150" height="65" rx="3" ry="3" class="actor"></rect><text x="475" y="32.5" dominant-baseline="central" alignment-baseline="central" class="actor" style="text-anchor: middle;"><tspan x="475" dy="0">Local Repository</tspan></text></g><g><line id="actor31" x1="675" y1="5" x2="675" y2="930.3125" class="actor-line" stroke-width="0.5px" stroke="#999"></line><rect x="600" y="0" fill="#eaeaea" stroke="#666" width="150" height="65" rx="3" ry="3" class="actor"></rect><text x="675" y="32.5" dominant-baseline="central" alignment-baseline="central" class="actor" style="text-anchor: middle;"><tspan x="675" dy="0">Remote Repository</tspan></text></g><defs><marker id="arrowhead" refX="5" refY="2" markerWidth="6" markerHeight="4" orient="auto"><path d="M 0,0 V 4 L6,2 Z"></path></marker></defs><defs><marker id="crosshead" markerWidth="15" markerHeight="8" orient="auto" refX="16" refY="4"><path fill="black" stroke="#000000" stroke-width="1px" d="M 9,2 V 6 L16,4 Z" style="stroke-dasharray: 0, 0;"></path><path fill="none" stroke="#000000" stroke-width="1px" d="M 0,1 L 6,7 M 6,1 L 0,7" style="stroke-dasharray: 0, 0;"></path></marker></defs><g><text x="175" y="93" class="messageText" style="text-anchor: middle;">git add</text><line x1="75" y1="100" x2="275" y2="100" class="messageLine0" stroke-width="2" stroke="black" marker-end="url(#arrowhead)" style="fill: none;"></line></g><g><text x="375" y="128" class="messageText" style="text-anchor: middle;">git commit</text><line x1="275" y1="135" x2="475" y2="135" class="messageLine0" stroke-width="2" stroke="black" marker-end="url(#arrowhead)" style="fill: none;"></line></g><g><text x="575" y="163" class="messageText" style="text-anchor: middle;">git push</text><line x1="475" y1="170" x2="675" y2="170" class="messageLine0" stroke-width="2" stroke="black" marker-end="url(#arrowhead)" style="fill: none;"></line></g><g><text x="575" y="198" class="messageText" style="text-anchor: middle;">git fetch</text><line x1="675" y1="205" x2="475" y2="205" class="messageLine0" stroke-width="2" stroke="black" marker-end="url(#arrowhead)" style="fill: none;"></line></g><g><text x="275" y="233" class="messageText" style="text-anchor: middle;">git merge</text><line x1="475" y1="240" x2="75" y2="240" class="messageLine0" stroke-width="2" stroke="black" marker-end="url(#arrowhead)" style="fill: none;"></line></g><g><text x="375" y="268" class="messageText" style="text-anchor: middle;">git pull</text><line x1="675" y1="275" x2="75" y2="275" class="messageLine0" stroke-width="2" stroke="black" marker-end="url(#arrowhead)" style="fill: none;"></line></g><g><rect x="100" y="285" fill="#EDF2AE" stroke="#666" width="150" height="120.875" rx="0" ry="0" class="note"></rect><text x="96" y="309" fill="black" class="noteText"><tspan x="116" fill="black">Put something in </tspan></text><text x="96" y="325.8125" fill="black" class="noteText"><tspan x="116" fill="black"> the staging area if </tspan></text><text x="96" y="342.625" fill="black" class="noteText"><tspan x="116" fill="black"> you want git to keep </tspan></text><text x="96" y="359.4375" fill="black" class="noteText"><tspan x="116" fill="black"> track of those </tspan></text><text x="96" y="376.25" fill="black" class="noteText"><tspan x="116" fill="black"> changes you want </tspan></text><text x="96" y="393.0625" fill="black" class="noteText"><tspan x="116" fill="black"> to commit.</tspan></text></g><g><rect x="300" y="415.875" fill="#EDF2AE" stroke="#666" width="150" height="53.625" rx="0" ry="0" class="note"></rect><text x="296" y="439.875" fill="black" class="noteText"><tspan x="316" fill="black">Commit to save </tspan></text><text x="296" y="456.6875" fill="black" class="noteText"><tspan x="316" fill="black"> changes.</tspan></text></g><g><rect x="500" y="479.5" fill="#EDF2AE" stroke="#666" width="150" height="154.5" rx="0" ry="0" class="note"></rect><text x="496" y="503.5" fill="black" class="noteText"><tspan x="516" fill="black">git push will send </tspan></text><text x="496" y="520.3125" fill="black" class="noteText"><tspan x="516" fill="black"> your updated work </tspan></text><text x="496" y="537.125" fill="black" class="noteText"><tspan x="516" fill="black"> to your remote repo </tspan></text><text x="496" y="553.9375" fill="black" class="noteText"><tspan x="516" fill="black">(for instance, at </tspan></text><text x="496" y="570.75" fill="black" class="noteText"><tspan x="516" fill="black"> github). git fetch will </tspan></text><text x="496" y="587.5625" fill="black" class="noteText"><tspan x="516" fill="black"> bring the updated </tspan></text><text x="496" y="604.375" fill="black" class="noteText"><tspan x="516" fill="black"> work from the </tspan></text><text x="496" y="621.1875" fill="black" class="noteText"><tspan x="516" fill="black"> remote repository.</tspan></text></g><g><rect x="300" y="644" fill="#EDF2AE" stroke="#666" width="150" height="87.25" rx="0" ry="0" class="note"></rect><text x="296" y="668" fill="black" class="noteText"><tspan x="316" fill="black">After fetching, you </tspan></text><text x="296" y="684.8125" fill="black" class="noteText"><tspan x="316" fill="black"> will be able to merge </tspan></text><text x="296" y="701.625" fill="black" class="noteText"><tspan x="316" fill="black"> your results to your </tspan></text><text x="296" y="718.4375" fill="black" class="noteText"><tspan x="316" fill="black"> working directory.</tspan></text></g><g><rect x="100" y="741.25" fill="#EDF2AE" stroke="#666" width="150" height="104.0625" rx="0" ry="0" class="note"></rect><text x="96" y="765.25" fill="black" class="noteText"><tspan x="116" fill="black">pull will automatically </tspan></text><text x="96" y="782.0625" fill="black" class="noteText"><tspan x="116" fill="black"> fetch + merge results </tspan></text><text x="96" y="798.875" fill="black" class="noteText"><tspan x="116" fill="black"> from your remote </tspan></text><text x="96" y="815.6875" fill="black" class="noteText"><tspan x="116" fill="black">repo to your working </tspan></text><text x="96" y="832.5" fill="black" class="noteText"><tspan x="116" fill="black"> directory.</tspan></text></g><g><rect x="0" y="865.3125" fill="#eaeaea" stroke="#666" width="150" height="65" rx="3" ry="3" class="actor"></rect><text x="75" y="897.8125" dominant-baseline="central" alignment-baseline="central" class="actor" style="text-anchor: middle;"><tspan x="75" dy="0">Working Directory</tspan></text></g><g><rect x="200" y="865.3125" fill="#eaeaea" stroke="#666" width="150" height="65" rx="3" ry="3" class="actor"></rect><text x="275" y="897.8125" dominant-baseline="central" alignment-baseline="central" class="actor" style="text-anchor: middle;"><tspan x="275" dy="0">Staging Area</tspan></text></g><g><rect x="400" y="865.3125" fill="#eaeaea" stroke="#666" width="150" height="65" rx="3" ry="3" class="actor"></rect><text x="475" y="897.8125" dominant-baseline="central" alignment-baseline="central" class="actor" style="text-anchor: middle;"><tspan x="475" dy="0">Local Repository</tspan></text></g><g><rect x="600" y="865.3125" fill="#eaeaea" stroke="#666" width="150" height="65" rx="3" ry="3" class="actor"></rect><text x="675" y="897.8125" dominant-baseline="central" alignment-baseline="central" class="actor" style="text-anchor: middle;"><tspan x="675" dy="0">Remote Repository</tspan></text></g></svg></div>
+<p>In class you’ll mostly use</p>
+<blockquote>
+<p>git add file.ipynb<br>
+git commit -m “Add lab week-1”<br>
+git push origin master</p>
+</blockquote>
+<hr>
+<h2 id="git-workflow---some-more-features.">Git workflow - Some more features.</h2>
+<h3 id="remote-repo-vs-local-repo">Remote Repo vs Local Repo</h3>
+<h4 id="git-clone">git clone</h4>
+<p>Clone a git repository from a <code>remote repo</code>.</p>
+<h3 id="branches">Branches</h3>
+<h4 id="git-branch-new_branch">git branch new_branch</h4>
+<p>Creates a new branch called <code>new_branch</code>.</p>
+<h4 id="git-checkout-example_branch">git checkout example_branch</h4>
+<p>Moves to the branch named <code>example_branch</code></p>
+<h4 id="git-checkout--b">git checkout -b</h4>
+<p>Create a new branch and and move to it.</p>
+<h3 id="github">GITHUB</h3>
+<h1 id="exercises">EXERCISES</h1>
+<ol>
+<li>
+<p>Starting both ways:<br>
+a. Create a folder in your computer. Put some file in it and initialize the version control with <code>git add</code>. Now create a new repository on your github account. Follow the instructions that github gives you and then tTry to upload that folder to your github account.<br>
+b. Visually create a repository on your github account, adding files to it manually (for example, include a <code>README.md</code> file). Now clone it to your own computer, make some modifications to that <code>README.md</code> file and try to re-upload it to your github. Observe the historic of changes in <code>commits</code> tab.</p>
+</li>
+<li>
+<p>Clone this repository to your local machine:  <a href="https://github.com/aguiarandre/ironhelpers">https://github.com/aguiarandre/ironhelpers</a>. As soon as you clone it. The folder at github will be a <code>remote repo</code> for you whereas your cloned repository will be your <code>local repo</code>.</p>
+</li>
+<li>
+<p>Make changes to the <code>setup.py</code> file. Change the values of author and email. Save these changes in your local repository and perform the steps to commit these changes.</p>
+</li>
+</ol>
+</div>
+</body>
+
+</html>
