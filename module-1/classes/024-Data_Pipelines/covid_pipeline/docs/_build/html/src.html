@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>covid_pipeline &mdash; src  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="src  documentation" href="index.html"/>
+        <link rel="next" title="Nodes" href="src.nodes.html"/>
+        <link rel="prev" title="Welcome to COVID Pipeline’s documentation!" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> src
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Source code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-src.pipeline">Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-src.client">Connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-src.params">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nodes-of-the-pipeline">Nodes of the pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src.nodes.html">Nodes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">src</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>covid_pipeline</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/src.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="covid-pipeline">
+<h1>covid_pipeline<a class="headerlink" href="#covid-pipeline" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-src.pipeline">
+<span id="pipeline"></span><h2>Pipeline<a class="headerlink" href="#module-src.pipeline" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="src.pipeline.process">
+<code class="sig-prename descclassname">src.pipeline.</code><code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param">client</em>, <em class="sig-param">params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/pipeline.html#process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.pipeline.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ETL pipeline.</p>
+<p>It contains the main nodes of the extract-transform-load
+pipeline from the process.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-src.client">
+<span id="connection"></span><h2>Connection<a class="headerlink" href="#module-src.client" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="src.client.Client">
+<em class="property">class </em><code class="sig-prename descclassname">src.client.</code><code class="sig-name descname">Client</code><span class="sig-paren">(</span><em class="sig-param">params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/client.html#Client"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.client.Client" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Connection to the database.</p>
+<p>The current implementation only refers to the PostgreSQL
+database, however, this could be easily enhanced to any
+database at all, including cloud.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-src.params">
+<span id="parameters"></span><h2>Parameters<a class="headerlink" href="#module-src.params" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="src.params.Params">
+<em class="property">class </em><code class="sig-prename descclassname">src.params.</code><code class="sig-name descname">Params</code><a class="reference internal" href="_modules/src/params.html#Params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.params.Params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Parameters class.</p>
+<p>This file centralizes anything that can be
+parametrized in the code.</p>
+<dl class="attribute">
+<dt id="src.params.Params.csv_files">
+<code class="sig-name descname">csv_files</code><em class="property"> = None</em><a class="headerlink" href="#src.params.Params.csv_files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="src.params.Params.database">
+<code class="sig-name descname">database</code><em class="property"> = 'covid_pipeline'</em><a class="headerlink" href="#src.params.Params.database" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="src.params.Params.df">
+<code class="sig-name descname">df</code><em class="property"> = Empty DataFrame Columns: [] Index: []</em><a class="headerlink" href="#src.params.Params.df" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="src.params.Params.external_data">
+<code class="sig-name descname">external_data</code><em class="property"> = '../data/external/'</em><a class="headerlink" href="#src.params.Params.external_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="src.params.Params.file_url">
+<code class="sig-name descname">file_url</code><em class="property"> = None</em><a class="headerlink" href="#src.params.Params.file_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="src.params.Params.filename">
+<code class="sig-name descname">filename</code><em class="property"> = None</em><a class="headerlink" href="#src.params.Params.filename" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="src.params.Params.host">
+<code class="sig-name descname">host</code><em class="property"> = 'localhost'</em><a class="headerlink" href="#src.params.Params.host" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="src.params.Params.intermediate_data">
+<code class="sig-name descname">intermediate_data</code><em class="property"> = '../data/intermediate/'</em><a class="headerlink" href="#src.params.Params.intermediate_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="src.params.Params.log_name">
+<code class="sig-name descname">log_name</code><em class="property"> = '../log/dump.log'</em><a class="headerlink" href="#src.params.Params.log_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="src.params.Params.password">
+<code class="sig-name descname">password</code><em class="property"> = 'admin'</em><a class="headerlink" href="#src.params.Params.password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="src.params.Params.processed_data">
+<code class="sig-name descname">processed_data</code><em class="property"> = '../data/processed/'</em><a class="headerlink" href="#src.params.Params.processed_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="src.params.Params.raw_data">
+<code class="sig-name descname">raw_data</code><em class="property"> = '../data/raw/'</em><a class="headerlink" href="#src.params.Params.raw_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="src.params.Params.rerun">
+<code class="sig-name descname">rerun</code><em class="property"> = True</em><a class="headerlink" href="#src.params.Params.rerun" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="src.params.Params.url">
+<code class="sig-name descname">url</code><em class="property"> = 'https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_daily_reports'</em><a class="headerlink" href="#src.params.Params.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="src.params.Params.user">
+<code class="sig-name descname">user</code><em class="property"> = 'postgres'</em><a class="headerlink" href="#src.params.Params.user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="nodes-of-the-pipeline">
+<h2>Nodes of the pipeline<a class="headerlink" href="#nodes-of-the-pipeline" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="src.nodes.html">Nodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="src.nodes.html#module-src.nodes.data_preparation">Data Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src.nodes.html#module-src.nodes.data_gathering">Data Gathering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src.nodes.html#module-src.nodes.data_storage">Data Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src.nodes.html#module-src.nodes.data_transform">Data Transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src.nodes.html#module-src.nodes.data_viz">Data Visualization</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="src.nodes.html" class="btn btn-neutral float-right" title="Nodes" accesskey="n">Next →</a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to COVID Pipeline’s documentation!" accesskey="p">← Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, DATAPT-TEAM IRONHACKERS.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE: 'true'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
