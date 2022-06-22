@@ -2,7 +2,7 @@ streamlit==0.59.0
 shap==0.34.0
 pandas==1.0.3
 matplotlib==3.2.1
-numpy==1.18.2
+numpy==1.22.0
 seaborn==0.9.0
 Pillow==8.3.2
 scikit_learn==0.22.2.post1
